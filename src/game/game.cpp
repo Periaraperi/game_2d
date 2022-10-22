@@ -63,16 +63,16 @@ void Game::run()
 		while (timer->get_accumulator()>=timer->get_fixed_step()) {
 			glm::vec2 mot(0.0f, 0.0f);
 
-			if (input_manager->key_down(SDL_SCANCODE_A)) {
+			if (input_manager->key_down(SDL_SCANCODE_A) || input_manager->key_down(SDL_SCANCODE_LEFT)) {
 				mot.x += speed;
 			}
-			if (input_manager->key_down(SDL_SCANCODE_D)) {
+			if (input_manager->key_down(SDL_SCANCODE_D) || input_manager->key_down(SDL_SCANCODE_RIGHT)) {
 				mot.x += -speed;
 			}
-			if (input_manager->key_down(SDL_SCANCODE_W)) {
+			if (input_manager->key_down(SDL_SCANCODE_W) || input_manager->key_down(SDL_SCANCODE_UP)) {
 				mot.y += speed;
 			}
-			if (input_manager->key_down(SDL_SCANCODE_S)) {
+			if (input_manager->key_down(SDL_SCANCODE_S) || input_manager->key_down(SDL_SCANCODE_DOWN)) {
 				mot.y += -speed;
 			}
 			if (mot.x != 0.0f || mot.y != 0.0f) {
