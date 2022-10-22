@@ -64,16 +64,16 @@ void Game::run()
 			glm::vec2 mot(0.0f, 0.0f);
 
 			if (input_manager->key_down(SDL_SCANCODE_A)) {
-				mot.x = speed;
+				mot.x += speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_D)) {
-				mot.x = -speed;
+				mot.x += -speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_W)) {
-				mot.y = speed;
+				mot.y += speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_S)) {
-				mot.y = -speed;
+				mot.y += -speed;
 			}
 			if (mot.x != 0.0f || mot.y != 0.0f) {
 				mot = speed * (mot / std::sqrt(mot.x * mot.x + mot.y * mot.y));
