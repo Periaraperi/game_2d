@@ -58,21 +58,28 @@ void Game::run()
 				break;
 			}
 		}
+		float speed = 2.0f;
 
 		while (timer->get_accumulator()>=timer->get_fixed_step()) {
+			glm::vec2 mot(0.0f, 0.0f);
+
 			if (input_manager->key_down(SDL_SCANCODE_A)) {
-				cam->update_position(glm::vec2(5.0f,0.0f));
+				mot.x = speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_D)) {
-				cam->update_position(glm::vec2(-5.0f,0.0f));
+				mot.x = -speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_W)) {
-				cam->update_position(glm::vec2(0.0f,5.0f));
+				mot.y = speed;
 			}
 			if (input_manager->key_down(SDL_SCANCODE_S)) {
-				cam->update_position(glm::vec2(0.0f,-5.0f));
+				mot.y = -speed;
 			}
+			if (mot.x != 0.0f || mot.y != 0.0f) {
+				mot = speed * (mot / std::sqrt(mot.x * mot.x + mot.y * mot.y));
 
+				cam->update_position(mot);
+			}
 			input_manager->update_prev_keyboard_state();
 			timer->update_accumulator();
 		}
