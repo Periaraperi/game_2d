@@ -46,7 +46,7 @@ bool Renderer::init()
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		window_width,window_height,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 	if (window==nullptr) {
 		std::cerr << SDL_GetError() << '\n';
 		return false;
