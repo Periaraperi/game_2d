@@ -76,6 +76,11 @@ void Game::run()
 				running = false;
 				break;
 			}
+			else if (ev.type == SDL_WINDOWEVENT) {
+				if (ev.window.event == SDL_WINDOWEVENT_RESIZED) {
+					glViewport(0, 0, ev.window.data1, ev.window.data2);
+				}
+			}
 		}
 		float speed = 2.0f;
 
