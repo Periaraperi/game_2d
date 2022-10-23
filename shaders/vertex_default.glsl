@@ -13,5 +13,4 @@ void main()
     txc = tex;
     c = color;
     gl_Position = u_mvp*vec4(pos.xy,0.0f,1.0f);
-    //gl_Position = vec4(pos.xy,0.0f,1.0f);
 }

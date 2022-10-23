@@ -2,15 +2,16 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
-Camera2d::Camera2d(float left, float right, float bottom, float top)
-	:projection(glm::ortho(left,right,bottom,top,-1.0f,1.0f)), view(glm::mat4(1.0f))
+Camera2d::Camera2d(float left, float right, float bottom, float top, int w, int h)
+	:projection(glm::ortho(left,right,bottom,top,-1.0f,1.0f)), view(glm::mat4(1.0f)), 
+	cam_width(w), cam_height(h)
 {
 	view_proj = projection*view;
 }
 
 void Camera2d::set_position(const glm::vec2& p)
 {
-	pos = p;
+	pos = p-glm::vec2(cam_width*0.5f,cam_height*0.5f);
 	calculate_view();
 }
 

@@ -8,7 +8,6 @@ uniform sampler2D u_texture;
 
 void main()
 {
-    pixel_color = c;
-	
+    pixel_color = texture(u_texture,txc);
 }
 

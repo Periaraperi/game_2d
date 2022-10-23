@@ -21,6 +21,7 @@ set(SRCS_ENGINE
 set(SRCS_GAME
     ${SRC_DIR_GAME}/game.cpp
     ${SRC_DIR_GAME}/camera2d.cpp
+    ${SRC_DIR_GAME}/player.cpp
 )
 
 set(SRCS_EXTERNAL

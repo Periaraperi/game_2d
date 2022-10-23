@@ -8,6 +8,9 @@
 #include "shader.hpp"
 
 #include "camera2d.hpp"
+#include "texture.hpp"
+
+#include "player.hpp"
 
 class Game {
 public:
@@ -24,9 +27,13 @@ private:
 	Input_Manager* input_manager;
 	Timer* timer;
 
-	std::unique_ptr<Quad> player;
 	std::unique_ptr<Shader> default_shader;
 	std::unique_ptr<Camera2d> cam;
+	std::unique_ptr<Texture> sprite_sheet;
+
+	std::unique_ptr<Player> player;
+	std::unique_ptr<Quad> wall;
+	std::unique_ptr<Quad> wall2;
 
 	Game();
 	~Game();

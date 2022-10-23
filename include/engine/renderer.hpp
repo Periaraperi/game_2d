@@ -5,6 +5,7 @@
 
 #include <unordered_map>
 #include <memory>
+#include <array>
 
 #include "shader.hpp"
 #include "color.hpp"
@@ -18,6 +19,10 @@ public:
 	void set_screen_color(const Color& c);
 	void clear_buffer();
 	void swap_buffers();
+
+	std::array<glm::vec2,4> get_tex_coords(float x, float y, 
+										   float block_width, float block_height, 
+										   float sheet_width, float sheet_height);
 
 	int get_width();
 	int get_height();

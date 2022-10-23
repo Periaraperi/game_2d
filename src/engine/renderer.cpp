@@ -57,7 +57,7 @@ bool Renderer::init()
 		return false;
 	}
 
-	if(!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)) {
+	if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)) {
 		std::cerr << "Failed to initialize GLAD\n";
 		return false;
 	}
@@ -65,6 +65,7 @@ bool Renderer::init()
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+	SDL_GL_SetSwapInterval(0);
 
 	return true;
 }
@@ -97,4 +98,27 @@ int Renderer::get_width()
 int Renderer::get_height()
 {
 	return window_height;
+}
+
+std::array<glm::vec2,4> Renderer::get_tex_coords(
+	float x, float y, 
+	float block_width, float block_height, 
+	float sheet_width, float sheet_height)
+{
+	std::array<glm::vec2,4> coords;
+
+	// bot left
+	coords[0].x = x*block_width/sheet_width;
+	coords[0].y = y*block_height/sheet_height;
+	// top left
+	coords[1].x = x*block_width/sheet_width;
+	coords[1].y = (y+1)*block_height/sheet_height;
+	// top right
+	coords[2].x = (x+1)*block_width/sheet_width;
+	coords[2].y = (y+1)*block_height/sheet_height;
+	// bot right
+	coords[3].x = (x+1)*block_width/sheet_width;
+	coords[3].y = y*block_height/sheet_height;
+
+	return coords;
 }
