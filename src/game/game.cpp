@@ -77,8 +77,7 @@ void Game::run()
 				break;
 			}
 		}
-
-		float speed = 5.0f;
+		float speed = 2.0f;
 
 		while (timer->get_accumulator()>=timer->get_fixed_step()) {
 			glm::vec2 mot(0.0f, 0.0f);

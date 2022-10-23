@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 
 Timer* Timer::timer = nullptr;
-float Timer::fixed_step = 1.0f/60.0f;
+float Timer::fixed_step = 1.0f / 240.0f;
 
 Timer* Timer::instance()
 {
