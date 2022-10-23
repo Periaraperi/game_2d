@@ -27,8 +27,6 @@ void Player::update_pos(const glm::vec2& p)
 	calculate_model();
 }
 
-#include <iostream>
-
 void Player::animate(const glm::vec2& dir, const std::unique_ptr<Texture>& sprite_sheet)
 {
 	float time_per_frame = anim_duration/nframes;
