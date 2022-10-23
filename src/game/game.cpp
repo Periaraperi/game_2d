@@ -59,7 +59,7 @@ void Game::run()
 	auto wall_verts = gen_quad(Color(1.0f,0.2f,0.5f,1.0f));
 	std::unique_ptr<Quad> wall = std::make_unique<Quad>(wall_verts);
 	glm::mat4 wall_model = glm::translate(glm::mat4(1.0f),glm::vec3(100.0f,200.0f,0.0f))*
-						   glm::scale(glm::mat4(1.0f),glm::vec3(500.0f,50.0f,0.0f));
+						   glm::scale(glm::mat4(1.0f),glm::vec3(8*64.0f,64.0f,0.0f));
 
 	glm::vec2 dir(0.0f,1.0f);
 
@@ -82,9 +82,12 @@ void Game::run()
 				}
 			}
 		}
-		float speed = 2.0f;
-
 		while (timer->get_accumulator()>=timer->get_fixed_step()) {
+            float speed = 1.0f;
+
+            if (input_manager->key_down(SDL_SCANCODE_LSHIFT) || input_manager->key_down(SDL_SCANCODE_RSHIFT)) {
+                speed = 2.0f;
+            }
 			glm::vec2 mot(0.0f, 0.0f);
 
 			if (input_manager->key_down(SDL_SCANCODE_A) || input_manager->key_down(SDL_SCANCODE_LEFT)) {
