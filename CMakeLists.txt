@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
 project(game_2d)
-set(GAME_NAME "2D Game")
+set(GAME_NAME "2DGame")
 
 set(SRC_DIR_ENGINE ${CMAKE_CURRENT_SOURCE_DIR}/src/engine)
 set(SRC_DIR_GAME ${CMAKE_CURRENT_SOURCE_DIR}/src/game)
