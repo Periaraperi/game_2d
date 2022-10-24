@@ -82,11 +82,14 @@ void Game::run()
 				}
 			}
 		}
+        float frameSpeed = 1.0f;
+
 		while (timer->get_accumulator()>=timer->get_fixed_step()) {
             float speed = 1.0f;
 
             if (input_manager->key_down(SDL_SCANCODE_LSHIFT) || input_manager->key_down(SDL_SCANCODE_RSHIFT)) {
                 speed = 2.0f;
+                frameSpeed = 2.0f;
             }
 			glm::vec2 mot(0.0f, 0.0f);
 
@@ -121,7 +124,7 @@ void Game::run()
 		renderer->clear_buffer();
 
 		default_shader->set_mat4("u_mvp",cam->view_projection()*player->get_model());
-		player->animate(dir,sprite_sheet);
+		player->animate(dir, frameSpeed, sprite_sheet);
 
 		default_shader->set_mat4("u_mvp",cam->view_projection()*wall_model);
 		wall->bind();

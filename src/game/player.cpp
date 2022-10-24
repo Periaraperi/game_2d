@@ -27,10 +27,10 @@ void Player::update_pos(const glm::vec2& p)
 	calculate_model();
 }
 
-void Player::animate(const glm::vec2& dir, const std::unique_ptr<Texture>& sprite_sheet)
+void Player::animate(const glm::vec2& dir, const float frameSpeed, const std::unique_ptr<Texture>& sprite_sheet)
 {
 	float time_per_frame = anim_duration/nframes;
-	anim_timer += Timer::instance()->get_delta();
+	anim_timer += frameSpeed * Timer::instance()->get_delta();
 
 	if (anim_timer>=time_per_frame) {
 		++sprite_id;

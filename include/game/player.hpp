@@ -21,7 +21,7 @@ public:
 	bool is_moving();
 
 	void draw();
-	void animate(const glm::vec2& dir, const std::unique_ptr<Texture>& sprite_sheet);
+	void animate(const glm::vec2& dir, const float frameSpeed, const std::unique_ptr<Texture>& sprite_sheet);
 
 private:
 	glm::vec2 pos;
